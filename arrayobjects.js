@@ -188,8 +188,21 @@ const okAllFiltered = citiesO
 console.log(okAny, okAll, okAllFiltered)
 
 // reduce 1: total population of all cities
+const totalPopulation = citiesO.reduce(
+    (acc, city) => acc + city.population,
+    0
+)
+console.log('Total population:', totalPopulation)
 
-// reduce 2: transform array of objects in an a Map(key=name, value=object wit properties (department, population))
+// reduce 2: transform array of objects in an a Map(key=name, value=object with properties (department, population))
+const cityMap = citiesO.reduce(
+    (map, city) => {
+        const {name, ...otherProperties} = city;
+        return map.set(name, otherProperties); // 'set' method returns a reference to the Map modified
+    },
+    new Map() // initial value = seed
+);
+console.log(cityMap)
 
 // reduce 3: group by departement => list cities, nb of cities
 // {
@@ -202,6 +215,22 @@ console.log(okAny, okAll, okAllFiltered)
 //            'size': 1
 //      }
 // }
+const citiesByDeptO = Object.groupBy(
+    citiesO,
+    ({department}) => department
+);
+console.log(citiesByDeptO);
+
+const citiesByDept1 = new Object()
+for (const [name, cityList] of Object.entries(citiesByDeptO)){
+    citiesByDept1[name] = {
+        cities: cityList,
+        size: cityList.length
+    }
+}
+console.log(citiesByDept1);
+
+
 
 // reduce 4: idem with result as a Map
 

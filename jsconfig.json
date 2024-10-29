@@ -3,6 +3,6 @@
         "noImplicitAny": false,
         "checkJs": true,
         "strict": true,
-        "target": "ES2023"
+        "target": "ESNext"
     }
 }
