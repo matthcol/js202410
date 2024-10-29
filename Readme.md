@@ -12,8 +12,11 @@ nvm use xx.xx.xx
 ```
 
 ## Node
+https://nodejs.org/en/about/previous-releases
+```
 node --version
 node hello.js
+```
 
 ## Syntax
 ### Destructuring assignment

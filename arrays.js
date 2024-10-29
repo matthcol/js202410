@@ -56,6 +56,8 @@ console.log(f3(1, 2, 3))
 console.log(f3(1, 2, 3, 4))
 // console.log(f3(1, 2, 3, 4, 5)) // Error linter but ok at execution
 console.log(f3(1, null, null, 4))
+const args3 = [1, 2, 3]
+console.log(f3(1, ...args3)) // a=1, [b, c, d] = args3
 
 console.log(cities.map(city => city.split('-'))) // Array<Array<string>>
 console.log(cities.flatMap(city => city.split('-'))) // Array<string>
