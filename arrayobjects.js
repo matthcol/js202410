@@ -189,7 +189,7 @@ console.log(okAny, okAll, okAllFiltered)
 
 // reduce 1: total population of all cities
 
-// reduce 2: transform array of objects in array of Map
+// reduce 2: transform array of objects in an a Map(key=name, value=object wit properties (department, population))
 
 // reduce 3: group by departement => list cities, nb of cities
 // {
