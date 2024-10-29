@@ -1,47 +1,58 @@
 const citiesO = [
     {
         name: 'Aix-en-Provence',
-        department: '13'
+        department: '13',
+        population: 3
     }, 
     {
         name: 'Toulouse',
-        department: '31'
+        department: '31',
+        population: 4
     }, 
     {
         name: 'Pau',
-        department: '64'
+        department: '64',
+        population: 2
     }, 
     {
         name: 'Marseille',
-        department: '13'
+        department: '13',
+        population: 4_000_000
     }, 
     {
         name: 'Fuveau',
-        department: '13'
+        department: '13',
+        population: 4
     }, 
     {
         name: 'Foix',
-        department: '09'
+        department: '09',
+        population: 8
     }, 
     {
         name: 'Ajaccio',
-        department: '2A'
+        department: '2A',
+        population: 100
     }, 
     {
         name: 'Dijon',
-        department: '21'
+        department: '21',
+        population: 1
     }, 
     {
         name: 'Lézignan-Corbières',
-        department: '11'
+        department: '11',
+        population: 40
     }, 
     {
         name: 'Laval',
-        department: '53'
+        department: '53',
+        population: 4
     }, 
     {
         name: 'Lyon',
-        department: '69'
+        department: '69',
+        population: 4
     }, 
 ]
 
@@ -176,7 +187,23 @@ const okAllFiltered = citiesO
     .every(isFromDept13)
 console.log(okAny, okAll, okAllFiltered)
 
+// reduce 1: total population of all cities
 
+// reduce 2: transform array of objects in array of Map
+
+// reduce 3: group by departement => list cities, nb of cities
+// {
+//      '13': {
+//          'cities': ['Marseille', 'Fuvveau' ...],
+//          'size':  4
+//      },
+//      '31': {
+//          'cities': ['Toulouse']
+//            'size': 1
+//      }
+// }
+
+// reduce 4: idem with result as a Map
 
 
 
