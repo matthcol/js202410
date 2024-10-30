@@ -189,8 +189,8 @@ console.log(okAny, okAll, okAllFiltered)
 
 // reduce 1: total population of all cities
 const totalPopulation = citiesO.reduce(
-    (acc, city) => acc + city.population,
-    0
+    (partialTotal, city) => partialTotal + city.population,
+    0 // partialTotal initialized with 0
 )
 console.log('Total population:', totalPopulation)
 
@@ -215,25 +215,83 @@ console.log(cityMap)
 //            'size': 1
 //      }
 // }
-const citiesByDeptO = Object.groupBy(
-    citiesO,
-    ({department}) => department
-);
-console.log(citiesByDeptO);
 
-const citiesByDept1 = new Object()
-for (const [name, cityList] of Object.entries(citiesByDeptO)){
-    citiesByDept1[name] = {
-        cities: cityList,
-        size: cityList.length
-    }
+// step1: Object with name -> list city Objects
+const citiesByDeptO1 = Object.groupBy(
+        citiesO,
+        ({department}) => department
+    );
+console.log(citiesByDeptO1) 
+// step 2: Object with name -> Object with (cities -> list city Objects, size -> number)
+const citiesByDeptO2 = Object.entries(
+        citiesByDeptO1
+    ).reduce(
+        (obj, [department, cityList]) => {
+            obj[department] = {
+                'cities': cityList,
+                'size': cityList?.length
+            };
+            return obj
+        },
+        {}
+    );
+console.log(citiesByDeptO2);
+// pretty print:
+console.log('Cities by department:')
+for (const [department, {cities, size}] of Object.entries(citiesByDeptO2)){
+    console.log(` - department=${department}:
+    * nb of cities = ${size}
+    * cities:`
+    )
+    cities.forEach(({name, population}) => // NB: skip department in destructuring
+        console.log(`       # ${name} (population=${population})`))
 }
-console.log(citiesByDept1);
-
 
 
 // reduce 4: idem with result as a Map
+// step1: Object with name -> list city Objects
+const citiesByDeptM = Map.groupBy(
+        citiesO,
+        ({department}) => department
+    )
+    .entries() // NB: it can be chained here
+    .reduce(
+        (map, [department, cityList]) => map.set(
+            department,
+            {
+                'cities': cityList,
+                'size': cityList.length
+            }
+        ),
+        new Map()
+    );
+console.log(citiesByDeptM);
+// pretty print:
+console.log('Cities by department:')
+for (const [department, {cities, size}] of citiesByDeptM.entries()){
+    console.log(` - department=${department}:
+    * nb of cities = ${size}
+    * cities:`
+    );
+    cities.forEach(({name, population}) => // NB: skip department in destructuring
+        console.log(`       # ${name} (population=${population})`))
+}
 
-
+// alt solution
+const citiesByDeptM2 = new Map( // takes an iterable 
+    Map.groupBy(
+        citiesO,
+        ({department}) => department
+    )
+    .entries() // Iterator sur [key=dept,value=list cities]
+    .map(([department, cityList]) => [
+        department,
+        {
+            'cities': cityList,
+            'size': cityList.length
+        }
+    ]) // Iterator sur [key=dept, value=list object(cities + size)]
+);
+console.log(citiesByDeptM2)
 
 

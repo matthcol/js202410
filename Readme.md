@@ -23,3 +23,19 @@ node hello.js
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 ### Spread
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
+## map/reduce vs iterator/iterable
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
+- Array objects have map/reduce methods: 
+    - map, flatMap, filter, forEach
+    - every, some, join, reduce, reduceRight
+    - find, findIndex, findLast, findLastIndex
+- Array, Set, Map, ... are iterable: [Symbol.iterator]() + values() + .keys() + .entries()
+- String is iterable: [Symbol.iterator]()
+- Iterator, Generator are Iterator/Iterable and share map/reduce API of Array
+    - map, flatMap, filter, forEach
+    - every, some, join, reduce, reduceRight
+    - find (only this one)
+    - + drop/take
+    - + toArray()
