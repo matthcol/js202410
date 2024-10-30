@@ -295,3 +295,31 @@ const citiesByDeptM2 = new Map( // takes an iterable
 console.log(citiesByDeptM2)
 
 
+// iterator on array
+const it = citiesO[Symbol.iterator]()
+console.log(it)
+console.log(it.next())
+
+// iterator on iterator on array = iterator on array
+const itIt = it[Symbol.iterator]()
+console.log(itIt)
+console.log(itIt === it)
+
+const text = 'JavaScript, EcmaScript'
+const lettersU = text[Symbol.iterator]()
+    .map(letter => letter.toUpperCase())
+    .toArray()
+console.log(lettersU)
+
+const lettersU2 = [...text]
+const lettersU3 = [...text[Symbol.iterator]().map(letter => letter.toUpperCase())]
+console.log(lettersU2)
+console.log(lettersU3)
+
+const textU = text[Symbol.iterator]()
+    .map(letter => letter.toUpperCase())
+    .toArray() // :(
+    .join('-')
+console.log(textU)
+
+

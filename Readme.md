@@ -35,7 +35,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 - String is iterable: [Symbol.iterator]()
 - Iterator, Generator are Iterator/Iterable and share map/reduce API of Array
     - map, flatMap, filter, forEach
-    - every, some, join, reduce, reduceRight
+    - every, some, reduce, reduceRight
     - find (only this one)
     - + drop/take
-    - + toArray()
+    - + toArray() or [...iterator]
+
+## Generators
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator
