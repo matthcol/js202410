@@ -42,3 +42,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 ## Generators
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator
+
+```
+function *mygenerator(){
+    ...
+    yield value
+    ...
+    yield* otherGenerator()
+}
+```
