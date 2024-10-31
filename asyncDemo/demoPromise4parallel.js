@@ -33,8 +33,34 @@ async function computeTwice(values){
     //  - call promise2
     //  - compute average result
     // final result: sum of all average intermediary results
-    return 0
+    return Promise.all(
+        values.map(value => Promise.all([
+            promise1(value),
+            promise2(3000, value)
+        ]).then(([r1, r2]) => {
+            console.log('results (twice):', r1, r2)
+            return (r1 + r2) / 2
+        })
+    )).then(
+        results => {
+            console.log('results (averages):', results);
+            return results.reduce((a,b) => a+b)
+        }
+    )
 }
 
 computeTwice([123, 456, 789])
     .then(finalResult => console.log('Final result (compute twice):', finalResult))
+
+
+async function computeTwice2(values){
+    const averagePromises = values.map(value => Promise.all([
+        promise1(value),
+        promise2(4000, value)
+    ]).then(([r1, r2]) => (r1 + r2) / 2));
+    return Promise.all(averagePromises)
+        .then(results => results.reduce((a,b) => a+b));
+}
+
+computeTwice2([123, 456, 789])
+    .then(finalResult => console.log('Final result (compute twice2):', finalResult))
