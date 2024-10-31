@@ -27,6 +27,10 @@ export default class Movie {
         this.year = year
         this.duration = duration
     }
+
+    toString(){
+        return `${this.title} (${this.year})`
+    }
 }
 
 // export default Movie

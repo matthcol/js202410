@@ -51,3 +51,21 @@ function *mygenerator(){
     yield* otherGenerator()
 }
 ```
+
+## Modules
+2 types:
+- commonJS
+- module (ES Module)
+
+To be defined in package.json with key "type" or with extensions .mjs or .cjs
+
+## OOP
+### class
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class
+
+### this
+'this' semantic depends on the context (global, instance, class, function, ...)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
+
+### Mixin
+https://developer.mozilla.org/en-US/docs/Glossary/Mixin
