@@ -69,3 +69,26 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
 
 ### Mixin
 https://developer.mozilla.org/en-US/docs/Glossary/Mixin
+
+## WEB APIs
+Portail: https://developer.mozilla.org/en-US/docs/Web/API
+
+- local storage: 
+https://developer.mozilla.org/en-US/docs/Web/API/Storage_API
+- web sockets:
+https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
+https://developer.mozilla.org/en-US/docs/Web/API/WebTransport_API
+https://en.wikipedia.org/wiki/HTTP/3
+- workers: 
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API
+https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
+https://developer.mozilla.org/en-US/docs/Web/API/Push_API
+- images:
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas
+https://developer.mozilla.org/en-US/docs/Web/API/SVG_API
+https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API
+
+## Web Components
+https://developer.mozilla.org/en-US/docs/Web/API/Web_components
+https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements
+https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots

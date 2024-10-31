@@ -1,12 +1,19 @@
 import {readFile} from 'fs/promises'
 
 async function readCitiesOfDepartment(filename, department){
-    return readFile(filename, {encoding: 'utf8'})
-        .then(data => JSON.parse(data)
-                .cities
+    return readFile(filename, {encoding: 'utf8'}) // error if file not found
+        .then(data => {
+            const citiesThisDepartment = JSON.parse(data) // error if not json
+                .cities // => error if key not exists
                 .filter(city => city.department_number == department)
                 .toSorted((city1, city2) => city1.label.localeCompare(city2.label))
-        )
+            if (citiesThisDepartment.length === 0) {
+                return Promise.reject(new Error(`Unknown department: ${department}`))
+            }
+            else return citiesThisDepartment
+            }
+        ) //.catch(() => Promise.reject(new Error('Incorrect file: not found, wrong JSON')))
+
 }
 
 // const data = await readCitiesOfDepartment('data/cities.json', 13)
@@ -15,11 +22,20 @@ async function readCitiesOfDepartment(filename, department){
 
 const prettyPrintCity = city => console.log(`\t- ${city.label} (${city.zip_code})`)
 
-const departments = [13, 64, '09'] // error: dept=9999
-Promise.all(
+const departments = [
+    13, 64, '09', 
+    99999, // error
+] 
+
+Promise.allSettled(
     departments.map(department => readCitiesOfDepartment('data/cities.json', department)
         .then(cityListOneDepartment => [department, cityListOneDepartment])
-)).then(allResult => new Map(allResult))
+)).then(allResult => {
+    allResult.filter(result => result.status === 'rejected')
+        .forEach(result => console.log('Warning:', result.reason.message))
+    return new Map(allResult.filter(result => result.status === 'fulfilled')
+        .map(result => result.value))
+})
 // pretty print
 .then(finalResult => {
     // console.log(finalResult)
@@ -31,7 +47,7 @@ Promise.all(
         cities.slice(-5)
             .forEach(prettyPrintCity)
     }
-})
+}).catch(error => console.log('Process interrupted:', error))
 
 // errors
 // readCitiesOfDepartment('data/cities.nojson', 31),

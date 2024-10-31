@@ -5,11 +5,35 @@
     </head>
     <body>
         <h1>Web Components Demo</h1>
-        <my-tag>My tag 1</my-tag>
-        <my-tag>My tag 2</my-tag>
-
+        <section>
+            <my-tag>My tag 1</my-tag>
+            <my-tag>My tag 2</my-tag>
+        </section>
+        <section>
+            <p is="super-paragraph">first paragraph</p>
+            <p is="super-paragraph">2nd paragraph</p>
+            <p is="super-paragraph">3rd paragraph</p>
+        </section>
+        <section>
+            <popup-info id="popup1"
+                img="images/hautes-montagnes-collines-couvertes-forets_181624-15442.avif"
+                data-text="Que la montagne est belle">
+            </popup-info>
+        </section>
+        <section>
+            <button id="btnChangePopupAttr">Change popup attributes</button>
+        </section>
         <script>
-            window.onload = () => set_my_tag_background('red')
+            window.onload = () => {
+                set_my_tag_background('red');
+                document.getElementById('btnChangePopupAttr')
+                    .onclick = () => {
+                        const popup = document.getElementById('popup1')
+                        popup.setAttribute('data-v', 'bg')
+                        popup.setAttribute('data-text', 'another form of art')
+                    }
+            }
+            
         </script>
     </body>
 </html>
