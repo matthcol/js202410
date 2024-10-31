@@ -3,6 +3,106 @@
 ## Versions JS/ES
 https://www.w3schools.com/js/js_versions.asp
 
+### EcmaScript (short)
+
+ES1	ECMAScript 1 (1997)
+ES2	ECMAScript 2 (1998)
+ES3	ECMAScript 3 (1999)
+ES4	ECMAScript 4	Never released
+ES5	ECMAScript 5 (2009)
+ES6	ECMAScript 2015
+ECMAScript 2016
+ECMAScript 2017
+ECMAScript 2018
+ECMAScript 2019
+ECMAScript 2020
+ECMAScript 2021
+ECMAScript 2022
+ECMAScript 2023
+ECMAScript 2024
+
+### EcmaScript (detail)
+ES1	ECMAScript 1 (1997)	First edition
+ES2	ECMAScript 2 (1998)	Editorial changes
+ES3	ECMAScript 3 (1999)	
+- Added regular expressions
+- Added try/catch
+- Added switch
+- Added do-while
+ES4	ECMAScript 4	Never released
+ES5	ECMAScript 5 (2009)
+- Added "strict mode"
+- Added JSON support
+- Added String.trim()
+- Added Array.isArray()
+- Added Array iteration methods
+- Allows trailing commas for object literals
+ES6	ECMAScript 2015
+- Added let and const
+- Added default parameter values
+- Added Array.find()
+- Added Array.findIndex()
+ECMAScript 2016 (7)
+- Added exponential operator (**)
+- Added Array.includes()
+ECMAScript 2017 (8)
+- Added string padding
+- Added Object.entries()
+- Added Object.values()
+- Added async functions
+- Added shared memory
+- Allows trailing commas for function parameters
+ECMAScript 2018 (9)
+- Added rest / spread properties
+- Added asynchronous iteration
+- Added Promise.finally()
+- Additions to RegExp
+ECMAScript 2019 (10)
+- String.trimStart()
+- String.trimEnd()
+- Array.flat()
+- Object.fromEntries
+- Optional catch binding
+ECMAScript 2020 (11)
+- BigInt
+- String matchAll()
+- The Nullish Coalescing Operator (??)
+- The Optional Chaining Operator (?.)
+- Logical AND Assignment Operator (&&=)
+- Logical OR Assignment (||=)
+- Nullish Coalescing Assignment (??=)
+- Promise.allSettled()
+- Dynamic Import
+ECMAScript 2021
+- Promise.any()
+- String replaceAll()
+- Numeric Separators (_)
+ECMAScript 2022
+- Array at()
+- String at()
+- RegExp /d
+- Object.hasOwn()
+- error.cause
+- await import
+- Class field declarations
+- Private methods and fields
+ECMAScript 2023
+- Array findLast()
+- Array findLastIndex()
+- Array toReversed()
+- Array toSorted()
+- Array toSpliced()
+- Array with()
+- #! (Shebang)
+ECMAScript 2024 (15)
+- Object.groupBy()
+- Map.groupBy()
+- Temporal.PlainDate()
+- Temporal.PlainTime()
+- Temporal.PlainMonthDay()
+- Temporal.PlainYearMonth()
+
+
 ## NVM
 ```
 nvm list
